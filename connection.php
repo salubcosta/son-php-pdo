@@ -10,12 +10,22 @@ try{
     // Query
     $query = "SELECT * FROM produtos";
 
-    // Lendo dados do banco de dados
-    foreach($conn->query($query) as $value):
-        echo $value['nome']."<br />";
-    endforeach;
+    $stmt = $conn->query($query);
 
-    print_r($return);
+    /**
+     * Posso trabalhar apenas com arrays associativos: PDO::FETCH_ASSOC
+     */
+    $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    echo "<pre>";
+    print_r($arr);
+    echo "</pre>";
+    // Lendo dados do banco de dados - Exemplo
+    // foreach($conn->query($query) as $value):
+    //     echo $value['nome']."<br />";
+    // endforeach;
+    // print_r($return);
+    
 }catch(\PDOException $e){
     echo "Error: {$e->getMessage()}";
 }
