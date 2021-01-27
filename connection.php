@@ -14,6 +14,8 @@ try{
 
     /**
      * Posso trabalhar apenas com arrays associativos: PDO::FETCH_ASSOC
+     * 
+     * Quando está trabalhando com apenas 1 registro. Pode ser utilizado o fetch.
      */
     $arr = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
